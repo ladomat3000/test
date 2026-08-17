@@ -10,7 +10,7 @@ spec:
 apiVersion: helm.toolkit.fluxcd.io/v2
 kind: HelmRelease
 metadata:
-  name: prometheus
+  name: prometheus-community
   namespace: prometheus
 spec:
   chart:
@@ -18,6 +18,6 @@ spec:
       chart: prometheus-community
       sourceRef:
         kind: HelmRepository
-        name: prometheus
+        name: prometheus-community
       version: '*'
   interval: 1m0s
