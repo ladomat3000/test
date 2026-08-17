@@ -1,23 +1,23 @@
 apiVersion: source.toolkit.fluxcd.io/v1
 kind: HelmRepository
 metadata:
-  name: prometheus-community
-  namespace: monitoring
+  name: grafana
+  namespace: grafana
 spec:
   interval: 1m0s
-  url: https://prometheus-community.github.io/helm-charts
+  url: https://grafana-community.github.io/helm-charts
 ---
 apiVersion: helm.toolkit.fluxcd.io/v2
 kind: HelmRelease
 metadata:
-  name: kube-prometheus-stack
-  namespace: monitoring
+  name: grafana
+  namespace: grafana
 spec:
   chart:
     spec:
-      chart: kube-prometheus-stack
+      chart: grafana
       sourceRef:
         kind: HelmRepository
-        name: prometheus-community
+        name: grafana
       version: '*'
   interval: 1m0s
