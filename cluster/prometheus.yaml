@@ -2,22 +2,8 @@ apiVersion: source.toolkit.fluxcd.io/v1
 kind: HelmRepository
 metadata:
   name: grafana
-  namespace: grafana
+  namespace: default
 spec:
   interval: 1m0s
   url: https://grafana-community.github.io/helm-charts
----
-apiVersion: helm.toolkit.fluxcd.io/v2
-kind: HelmRelease
-metadata:
-  name: grafana
-  namespace: grafana
-spec:
-  chart:
-    spec:
-      chart: grafana
-      sourceRef:
-        kind: HelmRepository
-        name: grafana
-      version: '*'
-  interval: 1m0s
+
