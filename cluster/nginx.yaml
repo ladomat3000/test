@@ -14,12 +14,12 @@ metadata:
   namespace: default
 spec:
   chart:
-    chart: nginx
-    version: ">=15.0.0"
-  sourceRef:
-    kind: HelmRepository
-    name: nginx
-  interval: 10m
-  releaseName: nginx
-  values:
-    replicaCount: 3
+    spec:
+      chart: nginx
+      reconcileStrategy: ChartVersion
+      sourceRef:
+        kind: HelmRepository
+        name: nginx
+        namespace: default
+      version: '*'
+  interval: 1m0s
